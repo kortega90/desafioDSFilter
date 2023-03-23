@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ContextCartCount } from "../../utils/context-cart";
+import * as productService from '../../services/product-service';
 import "./styles.css";
 
 type FormData = {
@@ -10,6 +12,7 @@ type Props = {
   onFilter?: Function;
 };
 export default function CardFilter({ onFilter }: Props) {
+
   const [formData, SetFormData] = useState<FormData>({});
 
   function handInputChange(event: any) {
@@ -17,6 +20,7 @@ export default function CardFilter({ onFilter }: Props) {
     const name = event.target.name;
     SetFormData({ ...formData, [name]: value });
   }
+
   function handleSubmit(event: any) {
     event.preventDefault();
     if (onFilter) {
