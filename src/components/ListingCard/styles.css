@@ -1,3 +1,7 @@
 .section-card-lister{
-    background-color: #d3c3bc;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
 }

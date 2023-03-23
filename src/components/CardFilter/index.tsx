@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ContextCartCount } from "../../utils/context-cart";
-import * as productService from '../../services/product-service';
+import * as productService from "../../services/product-service";
 import "./styles.css";
 
 type FormData = {
@@ -12,7 +12,6 @@ type Props = {
   onFilter?: Function;
 };
 export default function CardFilter({ onFilter }: Props) {
-
   const [formData, SetFormData] = useState<FormData>({});
 
   function handInputChange(event: any) {
@@ -24,14 +23,14 @@ export default function CardFilter({ onFilter }: Props) {
   function handleSubmit(event: any) {
     event.preventDefault();
     if (onFilter) {
-      onFilter (formData.min || 0,formData.max || Number.MAX_VALUE);
+      onFilter(formData.min || 0, formData.max || Number.MAX_VALUE);
     }
   }
   return (
     <section className="container mt20">
       <div className="section-card-filter ">
-        <div className="ml20">
-          <form onSubmit={handleSubmit}>
+        <div className="ml20 dflex">
+          <form className="card-filter" onSubmit={handleSubmit}>
             <div>
               <input
                 name="min"
@@ -41,7 +40,7 @@ export default function CardFilter({ onFilter }: Props) {
                 onChange={handInputChange}
               />
             </div>
-            <div>
+            <div >
               <input
                 name="max"
                 value={formData.max || ""}
